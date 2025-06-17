@@ -1,4 +1,4 @@
-# ASSIGNMENT FOR RESEARCH INTERNSHIP
+# ASSIGNMENT FOR RESEARCH INTERNSHIP at LOSSFUNK
 
 ## Generating the funniest joke imaginable with LLMs
 
@@ -8,7 +8,7 @@ Ans: I picked this project because I resonanted with the problem. I have seen th
 
 - **Q2 If you had more compute/time, what would you have done?**
 
-Ans: Unfortunately my exams are going on as of attempting this challenge and I was only able to give it a day. If I had more time and compute I would want to extend this idea to training llms with idea generation and then final solution generation methodology because as written in the paper, it could be a massive boost and we could condense pass@200 information in just a single pass using Reinforcement Learning.
+Ans: Unfortunately my exams are going on as of attempting this challenge and I was only able to give it a day. I would have tried to use local inference instead of api inference to iterate faster. Moreover if I had more time and compute I would want to extend this idea to training llms with idea generation and then final solution generation methodology because as written in the paper, it could be a massive boost and we could condense pass@200 information in just a single pass using Reinforcement Learning.
 Moreover I would love to perform ablations with this strategy for joke generation, creative writing, and various other non verifiable tasks using different models. One more idea could be posing this task as completition rather than question answer so that base models can be used as dicussed in the PLANSEARCH paper.
 I would have also used MCTS to prune the search space as discussed in the paper and would have used KL divergence for the distribution of the baseline model vs plansearch to show if is there a huge difference between the two at pass 200. 
 - **Q3 What did you learn in the project?**
@@ -33,6 +33,9 @@ In heuristic analysis (by humans) memorization shouldnt lead to generalization a
 
 Note: I used gemma model for generation and verification as in this paper https://aclanthology.org/2025.cmcl-1.6.pdf , They show that they are the best class of models when come for standup comedy, joke and humor generation.
 Also using deep research report for verification was partly inspired by https://freedium.cfd/https://medium.com/the-generator/how-i-built-funnygpt-an-ai-model-that-writes-standup-comedy-462e4485fd93
+
+# To run
+Add BASE_URL environment variable. The api follows openai compatible api.
 
 
 # Appendix (Results)
