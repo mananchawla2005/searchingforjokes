@@ -35,23 +35,28 @@ def generate_combinations(lst):
 
 # @rate_limiter(max_calls=100, period=60)
 def send_request(msg, max_tokens=1024):
-  # url = "https://api.hyperbolic.xyz/v1/chat/completions"
-  url = os.environ['BASE_URL']
-  headers = {
-      "Content-Type": "application/json",
-      # "Authorization": f"Bearer {os.environ['API_KEY']}"
-  }
-  data = {
-      "messages": msg,
-      # "model": "deepseek-ai/DeepSeek-V3-0324",
-      "model": "RedHatAI/gemma-3-27b-it-FP8-dynamic",
-      "max_tokens": max_tokens,
-      "temperature": 0.1,
-      "top_p": 0.9
-  }
-    
-  response = session.post(url, headers=headers, json=data)
-  return response.json()['choices'][0]['message']['content']
+    # url = "https://api.hyperbolic.xyz/v1/chat/completions"
+    url = os.environ['BASE_URL']
+    headers = {
+        "Content-Type": "application/json",
+        # "Authorization": f"Bearer {os.environ['API_KEY']}"
+    }
+    if(os.environ['API_KEY']):
+        headers['Authorization'] = f"Bearer {os.environ['API_KEY']}"
+    data = {
+        "messages": msg,
+        # "model": "deepseek-ai/DeepSeek-V3-0324",
+        "model": "RedHatAI/gemma-3-27b-it-FP8-dynamic",
+        "max_tokens": max_tokens,
+        "temperature": 0.1,
+        "top_p": 0.9
+    }
+
+    if(os.environ['MODEL']):
+        data['model'] = os.environ['MODEL']
+
+    response = session.post(url, headers=headers, json=data)
+    return response.json()['choices'][0]['message']['content']
 
 # First Order Prompts
 
